@@ -8,10 +8,11 @@ class GamesController < ApplicationController
     }
   end
   def score
-    @proposition = params[:word].upcase
+    @proposition = params[:word].upcase.split("").reject{|x| x==" "}
     @random_letters = params[:letters].split()
-    @build_test = @proposition.split("").all? {|x| @random_letters.include?(x)}
-    url = "https://wagon-dictionary.herokuapp.com/#{@proposition}"
+    @build_test = @proposition.all? {|x| @random_letters.include?(x)}
+
+    url = "https://wagon-dictionary.herokuapp.com/#{@proposition.join("")}"
     @dico_test = JSON.parse(open(url).read)["found"]
 
   end

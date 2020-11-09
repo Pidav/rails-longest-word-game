@@ -2,13 +2,13 @@
   <h1>Result</h1>
   <% if !@build_test %>
     <!-- sorry   -->
-    <p>Sorry but <span class="focus"><%= "#{@proposition.upcase}"%></span><%= " can't be built out of #{@random_letters.join(",")}"%></p>
+    <p>Sorry but <span class="focus"><%= "#{@proposition.join("")}"%></span><%= " can't be built out of #{@random_letters.join(",")}"%></p>
   <% elsif !@dico_test %>
     <!-- sorry -->
-    <p>Sorry but <span class="focus"><%= "#{@proposition.upcase}"%></span> doesn't seem to a valid English word..</p>
+    <p>Sorry but <span class="focus"><%= "#{@proposition.join("")}"%></span> doesn't seem to a valid English word..</p>
   <% else %>
     <!-- congrats -->
-    <p><%= "Congratulations : #{@proposition}"%></p>
+    <p><%= "Congratulations : #{@proposition.join("")}"%></p>
   <% end %>
   <div class="foot">
     <%= link_to "Play again", new_path %>
